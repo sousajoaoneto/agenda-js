@@ -1,0 +1,491 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14/08/2015, 19:25:15
+    Author     : Joao Sousa
+*/
+
+@import "../css/font-awesome.css";
+@import "../css/font-awesome.min.css";
+@import "animation.css";
+
+
+html, body, main, main > *{
+    margin: 0;
+    color: #000;
+    font-size: 22px;
+    font-family: "Helvetica", arial;
+}
+a, a:focus{
+    text-decoration: none;
+    color: #68A3EF;
+}
+main{
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+}
+main > *, section > *{
+    margin: 10px;
+    background: transparent;
+}
+main > header{
+    margin: 0px;
+    background: #242729;
+    text-align: left;
+    color: #fff;
+    font-size: 28px;
+    line-height: 66px;
+    height: 65px;
+    padding: 0 10px 0 10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+}
+container{
+    margin: 0 auto;
+    width: 1170px;
+    margin-top: 20px;
+}
+nav, section{
+    float: left;
+    min-height: 400px;
+}
+nav{
+    width: 18%;
+    padding: 0px;
+    background: #1FAE66;
+    position: fixed;
+    left: 0px;
+    height: calc(100% - 85px);
+}
+nav ul{
+    padding: 0;
+    text-align: left !important;
+    color: #fff;
+    margin: 0;
+}
+nav ul li{
+    display: block;
+    padding: 5px 10px 5px 15px;
+    border: 0;
+    cursor: pointer;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+nav ul li:first-child{
+    border-top: 0;
+}
+nav ul li:last-child{
+   border-bottom: 0;
+}
+nav ul > li:hover{
+    color: #fff;
+}
+nav ul li:hover{
+    background: #40BA7D;
+}
+nav ul li:hover .fa{
+    animation: pula01 .2s;
+}
+section{
+   width: calc(82% - 40px);
+   border: 1px solid rgba(0,0,0,0.15);
+   left: calc(18% + 20px);
+   position: absolute;
+}
+#sec_cad, #sec_show, #sec_edit{
+    display: none;
+}
+.overlay{
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    position: fixed;
+    z-index: 999;
+    margin: 0;
+    animation: simpleFade .3s;
+}
+@keyframes zoomIn{
+    0%{
+        transform: scale(.2) translateY(-100px);
+    }
+    100%{
+        transform: scale(1) translateY(0px);
+    }
+}
+@keyframes simpleFade{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+#sec_show{
+    position: absolute;
+    z-index: 9999;
+    top: 10px;
+    left: 0;
+    right: 0;    
+    background: #fff;
+    margin: 0 auto;
+    border-radius: 10px;
+    animation: simpleFade .3s;
+    animation: zoomIn .3s;
+}
+#sec_show .image{
+    width: 168px;
+    height: 168px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 19px 6px rgba(0, 0, 0, .15);
+    border-radius: 300px;
+    background-position: 50% 0%;
+    background-size: cover;
+    margin: 0 auto;
+    margin-bottom: 7px;
+    background-repeat: no-repeat;
+}
+#sec_show #fn, #sec_show #dd {
+    display: inline-block !important;
+    position: relative;
+    float: left;
+    top: 20px;
+}
+#sec_show #fn {
+    text-align: center;
+    width: 20%;
+}
+#sec_show #dd {
+    width: calc(80% - 47px);
+    margin-bottom: 47px;
+}
+#sec_show .btn-default{
+    border: 0;
+    font-size: 25px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #000;
+}
+
+section#sec_list {
+    padding-left: 30px;
+    width: calc(82% - 70px);
+    box-shadow: 0px 0px 9px 2px rgba(0,0,0,0.2);
+}
+#sec_list article{
+    background: #ccc;
+    height: 70px;
+}
+article.contato{
+    cursor: pointer;
+    padding: 10px;
+    display: inline-table;
+    width: 17.3%;
+    min-height: 95px;
+    position: relative;
+    text-align: center;
+    font-size: 22px;
+    color: #242729;
+    background: rgba(248, 156, 44, 0.65) !important;
+    transform: scale(0.9);
+    margin: 0;
+    transition: all .1s;
+}
+article.contato:hover{    
+    /*animation: zoomContato .3s;*/
+    transform: scale3d(1, 1, 1);
+    background: rgba(248, 156, 44, 1) !important;
+}
+article.contato img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    margin: 0 auto;
+    position: inherit;
+    left: 0;
+    right: 0;
+}
+.contato div {
+   line-height: 18px;
+}
+img{
+    animation: zoom01 .3s;
+}
+article.contato strong{
+    display: block;
+}
+article.contato span{
+    font-size: 18px;
+}
+
+.info {
+    border: 1px solid rgb(180, 209, 232);
+    border-radius: 5px;
+    background: rgb(192, 204, 214);
+    color: #fff;
+    padding: 5px 10px 5px 10px;
+    height: 30px;
+    line-height: 30px;
+}
+.info.info-success{
+    background: rgb(113, 252, 146);
+    border: 1px solid rgb(142, 204, 157);
+}
+header .page-title{
+    float: left;
+    font-weight: 600;
+    font-family: Lato;
+}
+header .search{
+    display: inline-flex;
+    margin-left: 20px;
+    width: 43%;
+}
+header form.search.opened {
+    margin: 0;
+}
+.search input {
+    width: calc(100% - 135px) !important;
+    height: 45px !important;
+    position: relative;
+    font-size: 32px;
+    background: #fff !important;
+    color: #7E7E7E;
+    padding: 0px 20px 0px!important;
+    display: none;
+    margin-bottom: 10px;
+    animation: abreBusca .2s linear;
+    float: left;
+}
+
+@keyframes abreBusca{
+    0%{
+        height: 0px;
+    }
+    100%{
+        height: 70px;
+    }
+
+}
+@keyframes fechaBusca{
+    0%{
+        height: 70px;
+    }
+    100%{
+        height: 0px;
+    }
+
+}
+
+header .search .btn,
+header .page-title .btn{
+    width: 34px !important;
+    height: 34px !important;
+    padding: 7px 0px 9px 0px;
+    font-size: 18px;
+    line-height: 0px;
+    border-radius: 35px;
+    background: transparent;
+    border: 2px solid #fff;    
+}
+
+.search .btn{
+    float: left;
+    display: none;
+}
+.search .btn:hover{
+    background: #fff;
+    color: #222527;
+}
+.search .btn.btn-primary{
+    margin-left: 10px;
+    background: #6b9eef;
+    border: 2px solid #6b9eef;
+}
+.search .btn.btn-primary:hover{
+    margin-left: 10px;
+    background: transparent;
+    border: 2px solid #fff;
+}
+
+.search.opened .btn {
+    top: 8px;
+    position: relative;
+}
+.search.opened .btn.btn-primary{
+    color: #fff;
+}
+
+/*
+section header{
+    animation: animation 1s linear alternate;
+    -webkit-animation-name: animation 2s linear alternate;
+}
+section article{
+    animation: animation 2s linear alternate;
+    -webkit-animation-name: animation 2s linear alternate;
+}
+section footer{
+    animation: animation 3s linear alternate;
+    -webkit-animation-name: animation 2s linear alternate;
+}
+*/
+@keyframes animation {
+  0% {
+	transform: translate(0%, 50%);
+	opacity: 0.6;
+  }
+  50% {
+	transform: translate(0%, 0%);
+  }
+  100% {	
+	opacity: 1;
+  }
+}
+footer{
+    clear: both;
+}
+
+
+/*CONTATO*/
+#cad_contato, #cad_contato > *, #cad_contato section > *{
+    /*background-color: transparent;*/
+    /*color: #000;*/
+    animation: none;
+}
+#cad_contato form{
+    border: 1px transparent;
+}
+#cad_contato form *{
+    animation: none;
+}
+main#cad_contato section > *{
+    text-align: left;
+}
+#cad_contato section{
+    width: calc(100% - 305px);
+    text-align: left;
+}
+#cad_contato > header{
+    
+}
+.ctl_form{
+    display: inline-block;
+    margin-bottom: 20px;
+}
+div[class*="col-"]+div[class*="col-12"],
+div[class*="col-12"]+div[class*="col-"],
+div[class="col-5"]+div[class="col-7"]+div[class*="col-"]{
+    clear: both;
+    padding-left: 0px !important;
+}
+div[class*="col-"]+div[class*="col-"]{
+    clear: both;
+    padding-left: 10px;
+}
+
+.col-1{
+    width: calc(8.33% - 15px);
+}
+.col-2{
+    width: calc(16.66% - 14px);
+}
+.col-3{
+    width: calc(25% - 13.3px);
+}
+.col-4{
+    width: calc(33.33% - 12.5px);
+}
+.col-5{
+    width: calc(41.66% - 12px);
+}
+.col-6{
+    width: calc(50% - 10px);
+}
+.col-7{
+    width: calc(58.33% - 11px);
+}
+.col-8{
+    width: calc(66.66% - 9px);
+}
+.col-9{
+    width: calc(75% - 8px);
+}
+.col-10{
+    width: calc(83.33% - 7px);
+}
+.col-11{
+    width: calc(91.66% - 6px);
+}
+.col-12{
+    width: calc(100% - 5.5px);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="date"],
+input[type="url"]{
+    width: calc(100% - 2px);
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    height: 25px;
+    padding-left: 5px;
+    background: transparent;
+}
+
+#cad_contato section article{
+    height: auto;
+}
+
+#cad_contato form button[type="submit"]{
+    float: right;
+}
+#cad_contato form footer{
+    height: 70px;
+}
+
+
+/*ELEMENTS*/
+.btn {
+    padding: 10px 15px;
+    font-size: 22px;
+    border-radius: 5px;
+    border: 1px solid #999;
+    background: #ccc;
+    color: #fff;
+    cursor: pointer;
+}
+.btn+.btn{
+    margin-left: 10px;
+}
+.btn:hover{
+    background: #999;
+}
+.btn.btn-primary {
+    border-color: #6b9eef;
+    background: #7AABFF;
+}
+.btn.btn-primary:hover {
+    background: #6b9eef;
+}
+.btn.btn-danger {
+    border-color: #D25C50;
+    background: #FF7A7A;
+}
+.btn.btn-danger:hover {
+    background: #D25C50;
+}
+
+input:required{
+    outline-color: #f00;
+}
